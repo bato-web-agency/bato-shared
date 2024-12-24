@@ -164,7 +164,7 @@ body {
             justify-content: center;
     width: 105px;
     height: 77px;
-    background: url(./img/petal.svg) center center no-repeat;
+    background: url(https://bato-web-agency.github.io/bato-shared/img/petal.svg) center center no-repeat;
     background-size: 100%;
     position: absolute;
     bottom: calc(100% + 10px);
