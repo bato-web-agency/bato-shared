@@ -83,10 +83,6 @@ body::after {
 
 /* Base Template */
 
-.base-template {
-    position: relative;
-}
-
 .base-template__title {
   display: block;
   margin: 0;
