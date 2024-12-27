@@ -66,14 +66,14 @@ body::after {
   padding-inline: 20px;
 }
 
-.preloader {
+.preview {
 	position: fixed;
 	inset: 0;
 	z-index: 9999;
 	pointer-events: none;
 }
 
-.preloader img {
+.preview img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
