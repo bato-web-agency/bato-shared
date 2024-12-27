@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const preloader = document.querySelector(".preloader");
+	const preview = document.querySelector(".preview");
 
-	if (preloader) {
+	if (preview) {
 		if (!window.location.href.includes("fullcpgrid")) {
-			preloader.style.display = "none";
+			preview.style.display = "none";
 		}
 	}
 });
