@@ -149,13 +149,13 @@ body::after {
   gap: var(--lines-gap);
 }
 
-.petal-menu__lines > input {
+.petal-menu__lines input {
+  all: unset;
   position: absolute;
   inset: 0;
   z-index: 1;
   opacity: 0;
   cursor: pointer;
-  all: unset;
   border-radius: 100%;
 }
 
