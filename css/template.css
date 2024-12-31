@@ -20,15 +20,11 @@ html {
   --font-oswald: "Oswald", sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
   display: block;
   position: relative;
   margin: 0;
-  padding-top: 100px;
+  padding: 80px 0;
   overflow-x: clip;
   background-color: var(--color-charcoal);
   font-family: var(--font-monserrat);
@@ -106,6 +102,13 @@ body::after {
 
 
 /* Base Template */
+
+.base-template__wrapper {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+  min-height: calc(100dvh - 160px);
+}
 
 .base-template__title {
   display: block;
