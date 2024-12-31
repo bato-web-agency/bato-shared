@@ -20,6 +20,10 @@ html {
   --font-oswald: "Oswald", sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
   display: block;
   position: relative;
@@ -81,6 +85,10 @@ body::after {
 }
 
 @media screen and (max-width: 767.9px) {
+  body {
+    font-size: 16px;
+  }
+
   body::before {
     position: absolute;
     width: 72%;
@@ -127,6 +135,12 @@ body::after {
   gap: 60px 90px;
   max-width: 100%;
   margin-inline: auto;
+}
+
+@media screen and (max-width: 767.9px) {
+  .base-template__title {
+    font-size: 32px;
+  }
 }
 
 
