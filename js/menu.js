@@ -9,11 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <input type="checkbox" id="contact-menu-trigger">
 
         <label tabindex="0" role="button" for="contact-menu-trigger" class="contact-menu__toggle">
-            <img src="https://bato-web-agency.github.io/bato-shared/img/contact-menu/contact.svg" alt="Open Menu">
-            <img src="https://bato-web-agency.github.io/bato-shared/img/contact-menu/close.svg" alt="Close Menu">
-        </label>
+            <div class="contact-menu__trigger">
+                <img src="https://bato-web-agency.github.io/bato-shared/img/contact-menu/contact.svg" alt="Open Menu">
+                <img src="https://bato-web-agency.github.io/bato-shared/img/contact-menu/close.svg" alt="Close Menu">
+            </div>
 
-        <div class="contact-menu__label">Contact Us</div>
+            <div class="contact-menu__label">Contact Us</div>
+        </label>
 
         <ul class="contact-menu__list">
             <li>
