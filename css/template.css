@@ -307,8 +307,7 @@ body::after {
 
 @media screen and (max-width: 767.9px) {
   .contact-menu {
-    left: 15px;
-    bottom: 15px;
+    display: none;
   }
 }
 
