@@ -62,6 +62,7 @@ body::after {
 .wrapper {
   display: block;
   margin-inline: auto;
+  width: 100%;
   max-width: 1280px;
   padding-inline: 20px;
 }
@@ -111,15 +112,13 @@ body::after {
 }
 
 .base-template__heading {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 3;
+  flex: 1;
+  z-index: 1;
 }
 
 @media screen and (max-width: 767.9px) {
   .base-template__heading {
-      align-items: center;
+    align-items: center;
   }
 }
 
@@ -131,7 +130,7 @@ body::after {
 @media screen and (max-width: 767.9px) {
   .base-template__heading .base-template__title,
   .base-template__heading .base-template__text {
-     text-align: center;
+    text-align: center;
   }
 }
 
