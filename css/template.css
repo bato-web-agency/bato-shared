@@ -110,6 +110,31 @@ body::after {
   min-height: calc(100dvh - 160px);
 }
 
+.base-template__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+@media screen and (max-width: 767.9px) {
+  .base-template__heading {
+      align-items: center;
+  }
+}
+
+.base-template__heading .base-template__title,
+.base-template__heading .base-template__text {
+  text-align: left;
+}
+
+@media screen and (max-width: 767.9px) {
+  .base-template__heading .base-template__title,
+  .base-template__heading .base-template__text {
+     text-align: center;
+  }
+}
+
 .base-template__title {
   display: block;
   margin: 0;
@@ -303,7 +328,6 @@ body::after {
   display: flex;
   align-items: center;
   column-gap: 15px;
-  z-index: 1;
 }
 
 @media screen and (max-width: 767.9px) {
