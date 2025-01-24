@@ -106,7 +106,6 @@ body::after {
 /* Base Template */
 
 .base-template__wrapper {
-  position: relative;
   display: flex;
 	flex-direction: column;
 	justify-content: center;
