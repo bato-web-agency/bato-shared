@@ -112,6 +112,10 @@ body::after {
   min-height: calc(100dvh - 160px);
 }
 
+.base-template__content {
+  position: relative;
+}
+
 .base-template__heading {
   flex: 1;
   z-index: 1;
