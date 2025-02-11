@@ -2,7 +2,7 @@
   "data": [
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2493", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 2493", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "John Doe",
 				"email": "johndoe@company.io",
@@ -17,7 +17,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5871", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 5871", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Olivia Brown",
 				"email": "oliviabrown@company.io",
@@ -32,7 +32,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5231", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 5231", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Sophia Davis",
 				"email": "sophiadavis@company.io",
@@ -47,7 +47,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4565", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 4565", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Ethan Reynolds",
 				"email": "ethanкeynolds@company.io",
@@ -62,7 +62,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 3463", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 3463", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Ava Wilson",
 				"email": "avawilson@company.io",
@@ -77,7 +77,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 8633", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 8633", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Mia Moore",
 				"email": "miamoore@company.io",
@@ -92,7 +92,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4212", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 4212", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "James Mitchell",
 				"email": "jamesmitchell@company.io",
@@ -107,7 +107,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2346", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 2346", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Amelia Anderson",
 				"email": "ameliaanderson@company.io",
@@ -122,7 +122,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2545", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 2545", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Harper Thomas",
 				"email": "harperthomas@company.io",
@@ -137,7 +137,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 8654", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 8654", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Evelyn White",
 				"email": "evelynwhite@company.io",
@@ -152,7 +152,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4213", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 4213", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Abigail Harris",
 				"email": "abigailharris@company.io",
@@ -167,7 +167,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5342", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 5342", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Ella Martin",
 				"email": "ellamartin@company.io",
@@ -182,7 +182,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 6345", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 6345", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Zoe King",
 				"email": "zoeking@company.io",
@@ -197,7 +197,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 7455", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 7455", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Jacob Foster",
 				"email": "jacobfoster@company.io",
@@ -212,7 +212,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 1244", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 1244", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Megan Scott",
 				"email": "meganscott@company.io",
@@ -227,7 +227,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4561", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 4561", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Madison Carter",
 				"email": "madisoncarter@company.io",
@@ -242,7 +242,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 9542", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 9542", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Natalie Adams",
 				"email": "natalieadams@company.io",
@@ -257,7 +257,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 6341", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 6341", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Matthew Lewis",
 				"email": "matthewlewis@company.io",
@@ -272,7 +272,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5263", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 5263", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "Robert Johnson",
 				"email": "robertjohnson@company.io",
@@ -287,7 +287,7 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 7457", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
+			"invoice": { "title": "INV - 7457", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.txt" },
 			"contact": {
 				"title": "William Davis",
 				"email": "williamdavis@company.io",
