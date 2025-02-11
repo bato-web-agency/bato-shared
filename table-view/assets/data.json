@@ -2,11 +2,11 @@
   "data": [
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2493", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 2493", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "John Doe",
 				"email": "johndoe@company.io",
-				"img_url": "img/avatars/johndoe.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/johndoe.jpg"
 			},
 			"company": "Nova Web Agency",
 			"progress": 60,
@@ -17,11 +17,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5871", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 5871", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Olivia Brown",
 				"email": "oliviabrown@company.io",
-				"img_url": "img/avatars/oliviabrown.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/oliviabrown.jpg"
 			},
 			"company": "Nova Web Agency",
 			"progress": 75,
@@ -32,11 +32,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5231", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 5231", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Sophia Davis",
 				"email": "sophiadavis@company.io",
-				"img_url": "img/avatars/sophiadavis.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/sophiadavis.jpg"
 			},
 			"company": "Pinnacle Web Lab",
 			"progress": 75,
@@ -47,11 +47,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4565", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 4565", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Ethan Reynolds",
 				"email": "ethanкeynolds@company.io",
-				"img_url": "img/avatars/ethanкeynolds.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/ethanкeynolds.jpg"
 			},
 			"company": "Pinnacle Web Lab",
 			"progress": 55,
@@ -62,11 +62,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 3463", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 3463", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Ava Wilson",
 				"email": "avawilson@company.io",
-				"img_url": "img/avatars/avawilson.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/avawilson.jpg"
 			},
 			"company": "Vision Web Studios",
 			"progress": 42,
@@ -77,11 +77,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 8633", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 8633", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Mia Moore",
 				"email": "miamoore@company.io",
-				"img_url": "img/avatars/miamoore.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/miamoore.jpg"
 			},
 			"company": "Nova Web Agency",
 			"progress": 87,
@@ -92,11 +92,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4212", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 4212", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "James Mitchell",
 				"email": "jamesmitchell@company.io",
-				"img_url": "img/avatars/jamesmitchell.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/jamesmitchell.jpg"
 			},
 			"company": "Vision Web Studios",
 			"progress": 42,
@@ -107,11 +107,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2346", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 2346", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Amelia Anderson",
 				"email": "ameliaanderson@company.io",
-				"img_url": "img/avatars/ameliaanderson.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/ameliaanderson.jpg"
 			},
 			"company": "Matrix Tech Group",
 			"progress": 90,
@@ -122,11 +122,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 2545", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 2545", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Harper Thomas",
 				"email": "harperthomas@company.io",
-				"img_url": "img/avatars/harperthomas.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/harperthomas.jpg"
 			},
 			"company": "Vision Web Studios",
 			"progress": 40,
@@ -137,11 +137,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 8654", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 8654", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Evelyn White",
 				"email": "evelynwhite@company.io",
-				"img_url": "img/avatars/evelynwhite.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/evelynwhite.jpg"
 			},
 			"company": "Urban Digital Co.",
 			"progress": 10,
@@ -152,11 +152,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4213", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 4213", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Abigail Harris",
 				"email": "abigailharris@company.io",
-				"img_url": "img/avatars/abigailharris.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/abigailharris.jpg"
 			},
 			"company": "Pinnacle Web Lab",
 			"progress": 78,
@@ -167,11 +167,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5342", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 5342", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Ella Martin",
 				"email": "ellamartin@company.io",
-				"img_url": "img/avatars/ellamartin.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/ellamartin.jpg"
 			},
 			"company": "Vision Web Studios",
 			"progress": 85,
@@ -182,11 +182,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 6345", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 6345", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Zoe King",
 				"email": "zoeking@company.io",
-				"img_url": "img/avatars/zoeking.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/zoeking.jpg"
 			},
 			"company": "NextGen Web Solutions",
 			"progress": 85,
@@ -197,11 +197,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 7455", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 7455", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Jacob Foster",
 				"email": "jacobfoster@company.io",
-				"img_url": "img/avatars/jacobfoster.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/jacobfoster.jpg"
 			},
 			"company": "Pinnacle Web Lab",
 			"progress": 25,
@@ -212,11 +212,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 1244", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 1244", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Megan Scott",
 				"email": "meganscott@company.io",
-				"img_url": "img/avatars/meganscott.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/meganscott.jpg"
 			},
 			"company": "Xtreme Digital Lab",
 			"progress": 11,
@@ -227,11 +227,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 4561", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 4561", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Madison Carter",
 				"email": "madisoncarter@company.io",
-				"img_url": "img/avatars/madisoncarter.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/madisoncarter.jpg"
 			},
 			"company": "Nexus Digital Solutions",
 			"progress": 10,
@@ -242,11 +242,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 9542", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 9542", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Natalie Adams",
 				"email": "natalieadams@company.io",
-				"img_url": "img/avatars/natalieadams.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/natalieadams.jpg"
 			},
 			"company": "Innovative Web Solutions",
 			"progress": 92,
@@ -257,11 +257,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 6341", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 6341", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Matthew Lewis",
 				"email": "matthewlewis@company.io",
-				"img_url": "img/avatars/matthewlewis.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/matthewlewis.jpg"
 			},
 			"company": "Innovative Web Solutions",
 			"progress": 80,
@@ -272,11 +272,11 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 5263", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 5263", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "Robert Johnson",
 				"email": "robertjohnson@company.io",
-				"img_url": "img/avatars/robertjohnson.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/robertjohnson.jpg"
 			},
 			"company": "NextGen Web Solutions",
 			"progress": 20,
@@ -287,17 +287,17 @@
 		},
 		{
 			"checkbox": false,
-			"invoice": { "title": "INV - 7457", "url": "https://invoice.com" },
+			"invoice": { "title": "INV - 7457", "url": "https://bato-web-agency.github.io/bato-shared/table-view/assets/invoice.pdf" },
 			"contact": {
 				"title": "William Davis",
 				"email": "williamdavis@company.io",
-				"img_url": "img/avatars/williamdavis.jpg"
+				"img_url": "https://bato-web-agency.github.io/bato-shared/table-view/img/avatars/williamdavis.jpg"
 			},
 			"company": "NextGen Web Solutions",
 			"progress": 50,
 			"details": "Curabitur tincidunt nunc sit amet.",
 			"datetime": { "date": "Deс 1, 2024", "time": "14:50" },
-			"status": "pending",
+			"status": "rejected",
 			"amount": "1,500.12"
 		}
 	]
