@@ -165,6 +165,7 @@ body::after {
 .base-template__list {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 60px 90px;
   max-width: 100%;
