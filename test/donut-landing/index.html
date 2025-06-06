@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut Landing</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+        <div class="container">
+            <a href="/" class="header__logo">DONUTS</a>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a href="#flip">
+                            offline shops
+                        </a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#steps">
+                            some history
+                        </a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#final">
+                            Delivery & payment
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="primary__btn header__btn">
+                ORDER NOW
+
+                <div class="primary__btn-rec"></div>
+                <div class="primary__btn-rec"></div>
+                <div class="primary__btn-rec"></div>
+                <div class="primary__btn-rec"></div>
+                <div class="primary__btn-rec"></div>
+                <div class="primary__btn-rec"></div>
+            </button>
+
+            <div class="header__btn-toggle" id="openMenu">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="container">
+                <div class="mobile-menu__top">
+                    <a href="/" class="header__logo">
+                        DONUTS
+                    </a>
+
+                    <div class="mobile-menu__close" id="closeMenu">
+                        <i></i>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="mobile-menu__bottom">
+                    <nav class="mobile-menu__nav">
+                        <ul class="mobile-menu__list">
+                            <li class="mobile-menu__item">
+                                <a href="#flip">
+                                    offline shops
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#steps">
+                                    some history
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#final">
+                                    Delivery & payment
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <button class="primary__btn mobile-menu__btn">
+                        ORDER NOW
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+    <main class="main">
+
+        <!-- Model Container -->
+
+        <div class="model">
+            <div class="model-wrapper">
+                <div class="donut" id="donut"></div>
+            </div>
+        </div>
+
+        <img
+            class="main__figure"
+            src="./img/hero-figure.svg"
+            alt="figure"
+        >
+
+        <div class="hero__pointer" id="scroll-btn" tabindex="0">
+            <img
+                    class="hero__mouse-icon"
+                    src="./img/mouse.svg"
+                    alt="mouse-icon"
+            >
+            <img
+                    class="hero__arrow"
+                    src="./img/arrow-bottom.svg"
+                    alt="arrow-icon"
+            >
+        </div>
+
+        <!-- Hero Section -->
+
+        <section class="hero" id="hero">
+            <div class="container hero__container">
+                <div class="hero__top">
+                    <div class="hero__heading-box">
+                        <h1 class="hero__heading"><span>D</span>  NUTS</h1>
+                        <span class="hero__text">BAKERY</span>
+                    </div>
+                </div>
+
+                <div class="hero__bottom"></div>
+            </div>
+        </section>
+
+        <!-- Transition Section -->
+
+        <div id="transition"></div>
+
+        <!-- Flip Section -->
+
+        <section class="flip" id="flip">
+            <img
+                class="flip__first-figure"
+                src="./img/flip-figure.svg"
+                alt="Flip Figure"
+            >
+            <img
+                class="flip__second-figure"
+                src="./img/flip-figure.svg"
+                alt="Flip Figure"
+            >
+            <div class="flip__first-figure figure"></div>
+            <div class="container">
+                <div class="flip__heading-box heading-box">
+                    <h2 class="flip__heading second-heading">
+                        Always fresh made. <br>
+                        Always delicious.
+                    </h2>
+                    <p class="flip__text">
+                        We bake our donuts daily using only natural ingredients — no additives, no shortcuts. Just pure, melt-in-your-mouth goodness in every bite.
+                    </p>
+                </div>
+                <div class="flip__shadow"></div>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+
+        <section class="steps" id="steps">
+            <div class="steps__heading-box heading-box">
+                <h2 class="steps__heading second-heading">
+                    Endless flavors. <br>
+                    Unlimited joy.
+                </h2>
+            </div>
+            <div class="steps__cards">
+                <div class="steps__card-first">
+                    <h3 class="steps__card-heading">
+                        Pistachio
+                        Dream
+                    </h3>
+                    <p class="steps__card-text">
+                        A nutty delight with a creamy pistachio glaze and a hint of crunch.
+                    </p>
+                </div>
+                <div class="steps__card">
+                    <h3 class="steps__card-heading">
+                        Classic
+                        Glaze
+                    </h3>
+                    <p class="steps__card-text">
+                        Timeless and sweet — a soft donut with a smooth vanilla glaze.
+                    </p>
+                </div>
+                <div class="steps__card">
+                    <h3 class="steps__card-heading">
+                        Berry
+                        Pop
+                    </h3>
+                    <p class="steps__card-text">
+                        Fruity and fresh — topped with a tangy berry glaze and real fruit bits.
+                    </p>
+                </div>
+                <div class="steps__card">
+                    <h3 class="steps__card-heading">
+                        Choco
+                        Bliss
+                    </h3>
+                    <p class="steps__card-text">
+                        Rich chocolate glaze on a fluffy base — made for true chocoholics.
+                    </p>
+                </div>
+                <div class="steps__card last-card">
+                    <h3 class="steps__card-heading">
+                        Choco
+                        Bliss
+                    </h3>
+                    <p class="steps__card-text">
+                        Rich chocolate glaze on a fluffy base — made for true chocoholics.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Final Section -->
+
+    <footer class="final" id="final">
+        <div class="container">
+            <img
+                class="footer__first-figure"
+                src="./img/footer-first-figure.svg"
+                alt="Footer Figure"
+            >
+            <img
+                class="footer__second-figure"
+                src="./img/footer-second-figure.svg"
+                alt="Footer Figure"
+            >
+            <div class="container">
+                <div class="final__heading-box heading-box">
+                    <h2 class="final__heading second-heading">
+                        Ready to treat <br>
+                        yourself?
+                    </h2>
+                </div>
+                <div class="final__order-box">
+                    <span class="final__order-title">
+                      Order your dream donut today and bring some sweetness to your day.
+                    </span>
+
+                    <button class="primary__btn final__btn">
+                        ORDER NOW
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                        <div class="primary__btn-rec"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
