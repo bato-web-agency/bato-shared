@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+
+    <link rel="stylesheet" href="../../../base/layouts/template.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="base-template">
+        <div class="wrapper base-template__wrapper">
+            <h1 class="base-template__title">
+                Track Your Progress with Purpose 💪
+            </h1>
+            <div class="base-template__text">
+                A stylish and flexible fitness tracker widget designed to enhance your digital project. <br> 
+                Customize difficulty levels, set timer, and motivate users through a user-focused design.
+            </div>
+
+            <div class="base-template__content">
+                <div class="fitness-tracker">
+
+                    <!-- Timer -->
+
+                    <div class="fitness-tracker__timer timer">
+                        <div class="timer__header block-header">
+                            <img src="img/timer.svg" alt="timer-icon" class="timer__icon block-icon">
+
+                            <span class="timer__heading block-heading">Timer</span>
+                        </div>
+
+                        <div class="timer__main">
+                            <div class="timer__progress">
+                                <div class="timer__background"></div>
+
+                                <div class="timer__progress-bar"></div>
+
+                                <div class="timer__time">
+                                    <span class="timer__min timer__text small-text">Min</span>
+                                    <p class="timer__numbers">
+                                        <span class="timer__min-value"></span>
+                                        :
+                                        <span class="timer__sec-value"></span>
+                                    </p>
+                                    <span class="timer__sec timer__text small-text">Sec</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="timer__button">Start</button>
+                    </div>
+
+                    <div class="fitness-tracker__first-column">
+
+                        <!-- Options -->
+
+                        <div class="fitness-tracker__options options">
+                            <div class="options__header block-header">
+                                <div class="options__icon block-icon">
+                                    <img src="img/options.svg" alt="options-icon">
+                                </div>
+
+                                <span class="options__heading block-heading">Set Up Your Workout</span>
+                            </div>
+
+                            <div class="options__mode-block">
+                                <button class="options__mode" data-mode="newbie">Newbie</button>
+                                <button class="options__mode active" data-mode="confident">Confident</button>
+                                <button class="options__mode" data-mode="beast">Beast Mode</button>
+                            </div>
+
+                            <div class="options__info">
+                                <div class="options__duration">
+                                    <span class="options__duration-title">
+                                        Workout Duration
+                                    </span>
+
+                                    <div class="options__numbers-box">
+                                        <p class="options__numbers">
+                                            <span class="options__min-value"></span>
+                                            :
+                                            <span class="options__sec-value"></span>
+                                        </p>
+                                        <span class="options__min small-text">Min</span>
+                                    </div>
+                                </div>
+
+                                <div class="options__calories">
+                                    <span class="options__calories-title">
+                                        Calories Spent
+                                    </span>
+
+                                    <div class="options__calories-box">
+                                        <span class="options__calories-count"></span>
+                                        <span class="options__cal small-text">Kcal</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calories Progress -->
+
+                        <div class="fitness-tracker__progress progress">
+                            <div class="progress__header block-header">
+                                <div class="progress__icon block-icon">
+                                    <img src="img/fire.svg" alt="progress-icon">
+                                </div>
+
+                                <span class="progress__heading block-heading">Calories Burned</span>
+                            </div>
+
+                            <div class="progress__scale">
+
+                            </div>
+
+                            <div class="progress__calories">
+                                <span class="progress__calories-count">1500</span>
+                                <span class="progress__remaining small-text">Remaining</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fitness-tracker__second-column">
+
+                        <!-- Duration -->
+
+                        <div class="fitness-tracker__duration duration">
+                            <div class="duration__header block-header">
+                                <div class="duration__icon block-icon">
+                                    <img src="img/options.svg" alt="duration-icon">
+                                </div>
+
+                                <span class="duration__heading block-heading">Workout Duration</span>
+                            </div>
+
+                            <div class="duration__time">
+                                <div class="duration__time-control">
+                                    <button class="duration__time-plus">
+                                        <img src="img/plus.svg" alt="plus-icon">
+                                    </button>
+                                    <p class="duration__numbers">
+                                        <span class="duration__min-value"></span>
+                                        :
+                                        <span class="duration__sec-value"></span>
+                                    </p>
+                                    <button class="duration__time-minus">
+                                        <img src="img/minus.svg" alt="minus-icon">
+                                    </button>
+                                </div>
+                                <span class="duration__min small-text">Min</span>
+                            </div>
+                        </div>
+
+                        <!-- Activity -->
+
+                        <div class="fitness-tracker__activity activity">
+                            <div class="activity__header block-header">
+                                <div class="activity__icon block-icon">
+                                    <img src="img/flag.svg" alt="activity-icon">
+                                </div>
+
+                                <span class="activity__heading block-heading">Activity Streak</span>
+                            </div>
+
+                            <div class="activity__streak">
+                                <span class="activity__streak-title small-text">Day</span>
+                                <div class="activity__streak-numbers">
+                                    <span class="activity__current-day">0</span>/7
+                                </div>
+                            </div>
+                            <div class="activity__days">
+                                <div class="activity__day" data-day="1">
+                                    <span class="activity__day-title small-text">Sun</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                                <div class="activity__day" data-day="2">
+                                    <span class="activity__day-title small-text">Mon</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                                <div class="activity__day" data-day="3">
+                                    <span class="activity__day-title small-text">Tue</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                                <div class="activity__day" data-day="4">
+                                    <span class="activity__day-title small-text">Wed</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                                <div class="activity__day" data-day="5">
+                                    <span class="activity__day-title small-text">Thu</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                                <div class="activity__day" data-day="6">
+                                    <span class="activity__day-title small-text">Fri</span>
+                                    <div class="activity__day-icon">
+
+                                    </div>
+                                </div>
+                                <div class="activity__day" data-day="7">
+                                    <span class="activity__day-title small-text">Sat</span>
+                                    <div class="activity__day-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
