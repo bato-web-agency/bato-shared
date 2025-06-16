@@ -55,10 +55,10 @@ scene.add(directionalLight);
 let model;
 const loader = new GLTFLoader();
 
-loader.load('./models/donut.gltf', (gltf) => {
+loader.load('./models/drip_donut.glb', (gltf) => {
 	model = gltf.scene;
-	model.position.set(0, 0, -2);
-	model.children[1].children[0].children[0].material.color.set('#ffc6f3');
+
+	model.children[0].children[0].children[0].children[0].children[1].children[0].children[0].material.color.set('#ffc6f3');
 	model.rotation.set(0, 1.5, 1.5);
 	scene.add(model);
 
@@ -81,17 +81,16 @@ const handleResponsive = () => {
 	if (!model) return;
 
 	const dots = [
-		{ width: 1300, scale: 1, position: [-0.1, 0, -2], z: 5 },
-		{ width: 1280, scale: 1, position: [0, 0, -2], z: 5 },
-		{ width: 1200, scale: 0.8, position: [-0.55, 0, -2], z: 5 },
-		{ width: 1024, scale: 0.8, position: [-0.45, 0.25, -3], z: 5.5 },
-		{ width: 960, scale: 0.75, position: [-0.45, 0.25, -1.5], z: 6 },
-		{ width: 768, scale: 0.7, position: [0.25, 0.25, -1.2], z: 6.5 },
-		{ width: 640, scale: 0.7, position: [0.45, 0, -1], z: 7 },
-		{ width: 575, scale: 0.5, position: [0.65, 0, -1], z: 7 },
-		{ width: 475, scale: 0.5, position: [0.65, 0.2, -1], z: 7.5 },
-		{ width: 375, scale: 0.45, position: [0.2, 0.2, -1], z: 7.5 },
-		{ width: 0, scale: 0.5, position: [0.5, 0, -1], z: 8 }
+		{ width: 1300, scale: 1, position: [0.15, 0, -2], z: 5 },
+		{ width: 1280, scale: 1, position: [0.2, 0, -2], z: 5 },
+		{ width: 1200, scale: 1, position: [0, 0, -2], z: 5 },
+		{ width: 1024, scale: 1, position: [0.5, 0, -3], z: 5.5 },
+		{ width: 960, scale: 1, position: [0.5, 0, -3], z: 6 },
+		{ width: 768, scale: 0.7, position: [0.5, 0, -1.2], z: 6.5 },
+		{ width: 640, scale: 0.7, position: [0.45, 0, -1.2], z: 7 },
+		{ width: 575, scale: 0.5, position: [0.35, 0.25, -1.2], z: 7 },
+		{ width: 375, scale: 0.35, position: [0.25, 0.2, -1.2], z: 7.5 },
+		{ width: 0, scale: 0.35, position: [0.25, 0.2, -1.2], z: 7.5 }
 	];
 
 	const dot = dots.find(d => width >= d.width) || dots[dots.length - 1];
@@ -106,23 +105,30 @@ const handleResponsive = () => {
 	renderer.setPixelRatio(window.devicePixelRatio);
 }
 
-const recreateAnimations = () => {
-	if (!model) return;
+function debounce(func, delay = 200) {
+	let timeoutId;
+	return function (...args) {
+		clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => {
+			func.apply(this, args);
+		}, delay);
+	};
+}
 
-	ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-	setupGsapAnimations(model);
-};
-
-window.addEventListener('resize', () => {
+const onResize = debounce(() => {
 	handleResponsive();
-	recreateAnimations();
-	camera.updateProjectionMatrix();
-});
+	window.location.reload();
+}, 200);
+
+window.addEventListener('resize', onResize);
 
 // Site GSAP Animations
 
 const setupGsapAnimations = (model) => {
-	const donutTop = model.children[1].children[0].children[0].material;
+	const donutTop = model.children[0].children[0].children[0].children[0].children[1].children[0].children[0].material;
+	const donutParticles = model.children[0].children[0].children[0].children[0].children[2].children[0].children[0];
+	donutParticles.material.transparent = true;
+	donutParticles.material.opacity = 1;
 
 	// Hero Section Animations
 
@@ -153,9 +159,9 @@ const setupGsapAnimations = (model) => {
 
 	timeline2
 		.to(model.rotation, { x: 0, z: 0.8, duration: 1 })
-		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2.5, y: window.innerWidth < 575 ? 1.75 : 2.5, z: window.innerWidth < 575 ? 1.75 : 2.5, duration: 1,}, '<')
+		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2, y: window.innerWidth < 575 ? 1.75 : 2, z: window.innerWidth < 575 ? 1.75 : 2, duration: 1,}, '<')
 		.to(model.position, { x: 0, y: 0, z: -5, duration: 1 }, '<')
-		.to(modelContainer, { x: '0vw', y: window.innerWidth < 575 ? '0vh' : '20vh', duration: 1 }, '<+=0.1');
+		.to(modelContainer, { x: '0vw', y: window.innerWidth < 1024 ? '10vh' : '20vh', duration: 1 }, '<+=0.1');
 
 	// Flip Section Animations
 
@@ -203,8 +209,8 @@ const setupGsapAnimations = (model) => {
 	});
 
 	timeline4
-		.to(modelContainer, { x: window.innerWidth < 1200 ? '20vw' : 0,  y: '23vh',  duration: 1 }, 0)
-		.to(model.scale, { x: window.innerWidth < 768 ? 1.25 : 2.5,  y: window.innerWidth < 768 ? 1.25 : 2.5,  z: window.innerWidth < 768 ? 1.25 : 2.5,  duration: 1}, '<')
+		.to(modelContainer, { x: window.innerWidth < 1200 ? '25vw' : 0,  y: window.innerWidth < 1200 ? '32vh' : '28vh',  duration: 1 }, 0)
+		.to(model.scale, { x: window.innerWidth < 768 ? 1.2 : 2,  y: window.innerWidth < 768 ? 1.2 : 2,  z: window.innerWidth < 768 ? 1.2 : 2,  duration: 1}, '<')
 		.to('.steps__heading', {opacity: 1, y: 0, duration: 0.5}, '<')
 
 	cardsArray.forEach((card, index) => {
@@ -215,6 +221,11 @@ const setupGsapAnimations = (model) => {
 		timeline4
 			.to(card, { y: y, duration: 5, ease: 'power3.out' }, stepTime)
 			.to(donutTop.color, {r: color.r, g: color.g, b: color.b, duration: 5, ease: 'power3.out' }, stepTime - 3);
+
+		if (index === 3) {
+			timeline4.to(donutParticles.material, { opacity: 0, duration: 3, ease: 'power2.out' }, stepTime);
+		}
+
 	});
 
 	// Final Section Animations
@@ -234,7 +245,7 @@ const setupGsapAnimations = (model) => {
 				controlModel = false;
 				gsap.to(model.rotation, {x: 0, y: 1.5, z: 0.8, duration: 1});
 				gsap.to(model.position, {x: 0, y: -0.01, z: -5, duration: 1});
-				gsap.to(model.scale, {x: window.innerWidth < 768 ? 1.25 : 2.5, y: window.innerWidth < 768 ? 1.25 : 2.5, z: window.innerWidth < 768 ? 1.25 : 2.5, duration: 1,});
+				gsap.to(model.scale, {x: window.innerWidth < 768 ? 1.25 : 2, y: window.innerWidth < 768 ? 1.25 : 2, z: window.innerWidth < 768 ? 1.25 : 2, duration: 1,});
 			}
 		}
 	});
@@ -242,9 +253,18 @@ const setupGsapAnimations = (model) => {
 	timeline5
 		.to('.final__heading', { opacity: 1, y: 0, duration: 0.1}, '<')
 		.to(donutTop.color, { r: 0.62, g: 0.80, b: 0.39, duration: 0.5 }, '<')
-		.to(modelContainer, { x: window.innerWidth < 575 ? '-10vw' : '-30vw', y: window.innerWidth < 768 ? '-10vh' : '10vh', duration: 1 }, '<')
+		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
+		.to(modelContainer, {
+			x: window.innerHeight < 500
+				? '-15vw' : (window.innerWidth < 575 ? '-5vw' : '-30vw'),
+			y: window.innerHeight < 500
+				? '25vh'
+				: (window.innerWidth < 768 ? '-15vh' : '10vh'),
+			duration: 1
+		}, '<')
 		.to(model.rotation, { y: 1.5, duration: 1 }, '<')
-		.to(model.scale, { x: window.innerWidth < 1024 ? 2 : 2.5, y: window.innerWidth < 1024 ? 2 : 2.5, z: window.innerWidth < 1024 ? 2 : 2.5, duration: 1,}, '<')
+		.to(model.scale, { x: window.innerWidth < 1024 ? 1.8 : 2, y: window.innerWidth < 1024 ? 1.8 : 2, z: window.innerWidth < 1024 ? 1.8 : 2, duration: 1,}, '<')
+
 		.to(finalText, { opacity: 1, y: 0, duration: 0.5 }, '<');
 }
 
