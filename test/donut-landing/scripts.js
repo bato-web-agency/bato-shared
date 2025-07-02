@@ -160,7 +160,7 @@ const setupGsapAnimations = (model) => {
 
 	timeline2
 		.to(model.rotation, { x: 0, z: 0.8, duration: 1 })
-		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2, y: window.innerWidth < 575 ? 1.75 : 2, z: window.innerWidth < 575 ? 1.75 : 2, duration: 1,}, '<')
+		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2.25, y: window.innerWidth < 575 ? 1.75 : 2.25, z: window.innerWidth < 575 ? 1.75 : 2.25, duration: 1,}, '<')
 		.to(model.position, { x: 0, y: 0, z: -5, duration: 1 }, '<')
 		.to(modelContainer, { x: '0vw', y: window.innerWidth < 1024 ? '20vh' : '20vh', duration: 1 }, '<+=0.1');
 
@@ -192,6 +192,7 @@ const setupGsapAnimations = (model) => {
 	const cardsArray = Array.from(cards);
 
 	const colors = [
+		{ r: 0.62, g: 0.80, b: 0.39 },
 		{ r: 0.9568627450980393, g: 0.9254901960784314, b: 0.8666666666666667 },
 		{ r: 0.9098039215686274, g: 0.5490196078431373, b: 0.7333333333333333 },
 		{ r: 0.16862745098039217, g: 0.047058823529411764, b: 0.011764705882352941 },
@@ -201,7 +202,7 @@ const setupGsapAnimations = (model) => {
 		scrollTrigger: {
 			trigger: '#steps',
 			start: 'top top',
-			end: () => `+=${window.innerHeight * 3}`,
+			end: () => `+=${window.innerHeight * 4}`,
 			scrub: true,
 			pin: true,
 			pinSpacing: false
@@ -245,27 +246,23 @@ const setupGsapAnimations = (model) => {
 
 
 		if (index === 2) {
-			timeline4.to(donutParticles.material, { opacity: 0, duration: 3, ease: 'power2.out' }, stepTime);
+			timeline4.to(donutParticles.material, { opacity: 0, duration: 3, ease: 'power2.out' }, stepTime + 1);
 		}
 	});
 
-	// Numbers Section Animations
-
-	const items = gsap.utils.toArray('.numbers__item');
+	// Second Transition Section
 
 	const timeline5 = gsap.timeline({
 		scrollTrigger: {
-			trigger: '#numbers',
-			start: 'top top',
-			end: () => `+=${window.innerHeight * items.length - 2}`,
+			trigger: '#second-transition',
+			start: 'top bottom',
+			end: () => `+=${window.innerHeight}px`,
 			scrub: true,
-			pin: true,
-			pinSpacing: false,
 		}
 	});
 
 	timeline5
-		.to(donutTop.color, { r: 0.9098039215686274, g: 0.5490196078431373, b: 0.7333333333333333, duration: 5, ease: 'power3.out' }, '<')
+		.to(donutTop.color, { r: 0.9098039215686274, g: 0.5490196078431373, b: 0.7333333333333333, duration: 5, ease: 'power3.out' }, '0')
 		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
 		.to(model.scale, {
 			x: (window.innerHeight < 600 || window.innerWidth < 1024) ? 1.5 : 2.25,
@@ -280,18 +277,36 @@ const setupGsapAnimations = (model) => {
 				return '25vw';
 			},
 			y: () => {
-				if (window.innerHeight < 600) return '20vh';
-				if (window.innerWidth < 640) return '30vh';
-				return window.innerWidth < 1200 ? '5vh' : '15vh';
+				if (window.innerHeight < 600) return '15vh';
+				if (window.innerWidth < 640) return '25vh';
+				return window.innerWidth < 1200 ? '5vh' : '10vh';
 			},
 			duration: 1
 		}, '<')
+
+
+	// Numbers Section Animations
+
+	const items = gsap.utils.toArray('.numbers__item');
+
+	const timeline6 = gsap.timeline({
+		scrollTrigger: {
+			trigger: '#numbers',
+			start: 'top top',
+			end: () => `+=${window.innerHeight * items.length - 2}`,
+			scrub: true,
+			pin: true,
+			pinSpacing: false,
+		}
+	});
+
+	timeline6
 		.to('.numbers__heading', {opacity: 1, y: 0, duration: 1}, '<');
 
 	items.forEach((item, i) => {
 		const others = items.filter((item, index) => index !== i);
 
-		timeline5
+		timeline6
 			.to(others, {
 				opacity: 0.3,
 				duration: 0.5,
@@ -309,7 +324,7 @@ const setupGsapAnimations = (model) => {
 
 	const finalText = document.querySelector('.final__order-box');
 
-	const timeline6 = gsap.timeline({
+	const timeline7 = gsap.timeline({
 		scrollTrigger: {
 			trigger: '#final',
 			start: 'top-=400 top',
@@ -326,13 +341,13 @@ const setupGsapAnimations = (model) => {
 		}
 	});
 
-	timeline6
-		.to('.final__order-box', { opacity: 1, y: 0, duration: 0.5}, '<')
+	timeline7
+		.to('.final__order-box', { opacity: 1, x: 0, duration: 0.5}, '<')
 		.to(donutTop.color, { r: 0.62, g: 0.80, b: 0.39, duration: 0.5 }, '<')
 		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
 		.to(modelContainer, {
 			x: window.innerWidth < 768
-				? '0vw' : (window.innerWidth < 575 ? '-5vw' : '-20vw'),
+				? '0vw' : (window.innerWidth < 575 ? '-5vw' : '-40vw'),
 			y: window.innerHeight < 500
 				? '25vh'
 				: (window.innerWidth < 1200 ? '30vh' : '5vh'),
