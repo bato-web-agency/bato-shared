@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const lenis = new Lenis({
 	smooth: true,
-	multiplier: 1,
+	multiplier: 0.5,
 	easing: (t) => t * (2 - t),
 	smoothTouch: true,
 	lerp: 0.05,
@@ -77,6 +77,7 @@ animate();
 
 const handleResponsive = () => {
 	const width = window.innerWidth;
+	const height = window.innerHeight;
 
 	if (!model) return;
 
@@ -88,9 +89,9 @@ const handleResponsive = () => {
 		{ width: 960, scale: 1, position: [0.5, 0, -3], z: 6 },
 		{ width: 768, scale: 0.7, position: [0.5, 0, -1.2], z: 6.5 },
 		{ width: 640, scale: 0.7, position: [0.45, 0, -1.2], z: 7 },
-		{ width: 575, scale: 0.5, position: [0.45, -0.1, -1.2], z: 7 },
+		{ width: 575, scale: 0.6, position: [0.45, -0.1, -1.2], z: 7 },
 		{ width: 475, scale: 0.5, position: [0.3, -0.1, -1.2], z: 7 },
-		{ width: 375, scale: 0.35, position: [0.3, 0, -1.2], z: 7.5 },
+		{ width: 375, scale: 0.35, position: [0.3, -0.1, -1.2], z: 7.5 },
 		{ width: 0, scale: 0.35, position: [0.25, -0.1, -1.2], z: 7.5 }
 	];
 
@@ -116,9 +117,16 @@ function debounce(func, delay = 200) {
 	};
 }
 
+let lastWidth = window.innerWidth;
+
 const onResize = debounce(() => {
-	handleResponsive();
-	window.location.reload();
+	const currentWidth = window.innerWidth;
+
+	if (currentWidth !== lastWidth) {
+		handleResponsive();
+		lastWidth = currentWidth;
+		window.location.reload();
+	}
 }, 200);
 
 window.addEventListener('resize', onResize);
@@ -159,7 +167,7 @@ const setupGsapAnimations = (model) => {
 	});
 
 	timeline2
-		.to(model.rotation, { x: 0, z: 0.8, duration: 1 })
+		.to(model.rotation, { x: 0, z: 0.8, duration: 1})
 		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2.25, y: window.innerWidth < 575 ? 1.75 : 2.25, z: window.innerWidth < 575 ? 1.75 : 2.25, duration: 1,}, '<')
 		.to(model.position, { x: 0, y: 0, z: -5, duration: 1 }, '<')
 		.to(modelContainer, { x: '0vw', y: window.innerWidth < 1024 ? '20vh' : '20vh', duration: 1 }, '<+=0.1');
@@ -244,6 +252,27 @@ const setupGsapAnimations = (model) => {
 				ease: "power2.out"
 			}, delayTime - 3)
 
+		timeline4.to(`.steps__indicator:nth-child(${index + 1})`, {
+			opacity: 1,
+			duration: 1,
+			ease: 'power2.out'
+		}, stepTime);
+
+		if (index > 0) {
+			timeline4.to(`.steps__indicator:nth-child(${index})`, {
+				opacity: 0.2,
+				duration: 1,
+				ease: 'power2.out'
+			}, stepTime);
+		}
+
+		if (index === cardsArray.length - 1) {
+			timeline4.to('.steps__indicator', {
+				opacity: 0.2,
+				duration: 1,
+				ease: 'power2.out'
+			}, stepTime + 5);
+		}
 
 		if (index === 2) {
 			timeline4.to(donutParticles.material, { opacity: 0, duration: 3, ease: 'power2.out' }, stepTime + 1);
@@ -277,7 +306,7 @@ const setupGsapAnimations = (model) => {
 				return '25vw';
 			},
 			y: () => {
-				if (window.innerHeight < 600) return '15vh';
+				if (window.innerHeight < 600) return '30vh';
 				if (window.innerWidth < 640) return '25vh';
 				return window.innerWidth < 1200 ? '5vh' : '10vh';
 			},
@@ -342,18 +371,31 @@ const setupGsapAnimations = (model) => {
 	});
 
 	timeline7
-		.to('.final__order-box', { opacity: 1, x: 0, duration: 0.5}, '<')
+		.to('.final__order-box', { opacity: 1, x: 0, duration: 0.5 }, '<')
 		.to(donutTop.color, { r: 0.62, g: 0.80, b: 0.39, duration: 0.5 }, '<')
 		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
 		.to(modelContainer, {
-			x: window.innerWidth < 768
-				? '0vw' : (window.innerWidth < 575 ? '-5vw' : '-40vw'),
-			y: window.innerHeight < 500
-				? '25vh'
-				: (window.innerWidth < 1200 ? '30vh' : '5vh'),
+			x: () => {
+				if ((window.innerHeight < 600) && (window.innerWidth < 575)) return '0vw';
+				if (window.innerHeight < 600) return '-30vw';
+				if (window.innerWidth < 768) return '0vw';
+				if (window.innerWidth < 575) return '0vw';
+				return '-40vw';
+			},
+			y: () => {
+				if (window.innerWidth < 1024 && window.innerHeight < 600) return '30vh';
+				if (window.innerHeight < 600) return '10vh';
+				if (window.innerWidth < 1200) return '30vh';
+				return '5vh';
+			},
 			duration: 1
 		}, '<')
-		.to(model.scale, { x: window.innerWidth < 1024 ? 1.5 : 2.25, y: window.innerWidth < 1024 ? 1.5 : 2.25, z: window.innerWidth < 1024 ? 1.5 : 2.25, duration: 1,}, '<')
+		.to(model.scale, {
+			x: window.innerWidth < 1024 ? 1.5 : 2.25,
+			y: window.innerWidth < 1024 ? 1.5 : 2.25,
+			z: window.innerWidth < 1024 ? 1.5 : 2.25,
+			duration: 1
+		}, '<')
 		.to(finalText, { opacity: 1, y: 0, duration: 0.5 }, '<');
 }
 
@@ -362,8 +404,16 @@ const setupGsapAnimations = (model) => {
 let isDragging = false;
 let prevMousePosition = { x: 0, y: 0};
 let controlModel = false;
+let rotationBeforeControl = null;
+let rotationReset = false;
 
 window.addEventListener('mousedown', (event) => {
+	if (controlModel) {
+		if (!isDragging) {
+			rotationBeforeControl = model.rotation.clone();
+		}
+		rotationReset = false;
+	}
 	isDragging = true;
 	prevMousePosition = { x: event.clientX, y: event.clientY };
 });
@@ -385,6 +435,13 @@ window.addEventListener('mousemove', (event) => {
 });
 
 window.addEventListener('touchstart', (event) => {
+	if (event.touches.length === 1 && controlModel) {
+		if (!isDragging) {
+			rotationBeforeControl = model.rotation.clone();
+		}
+		rotationReset = false;
+	}
+
 	if (event.touches.length === 1) {
 		isDragging = true;
 		prevMousePosition = {
@@ -441,6 +498,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			header.classList.add('scrolling');
 		} else {
 			header.classList.remove('scrolling');
+		}
+
+		if (controlModel && !rotationReset && rotationBeforeControl) {
+			rotationReset = true;
+
+			gsap.to(model.rotation, {
+				x: rotationBeforeControl.x,
+				y: rotationBeforeControl.y,
+				z: rotationBeforeControl.z,
+				duration: 1,
+				ease: "power2.out",
+				onComplete: () => {
+					controlModel = false;
+				}
+			});
 		}
 	});
 
