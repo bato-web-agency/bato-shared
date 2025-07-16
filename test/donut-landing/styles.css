@@ -33,6 +33,14 @@ body {
     font-family: var(--donut-landing-main-font), sans-serif;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
+body.menu-open .header {
+    transform: none !important;
+}
+
 .container {
     max-width: 1300px;
     padding: 0 20px;
@@ -320,6 +328,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .model-wrapper {
@@ -417,11 +426,12 @@ body {
 
 .hero__pointer {
     position: absolute;
-    z-index: 1000;
+    z-index: 999;
     left: 3%;
     top: 5%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     cursor: pointer;
 }
@@ -479,7 +489,7 @@ body {
 .flip {
     position: relative;
     height: 100dvh;
-    margin: 100dvh 0;
+    margin: 150dvh 0;
     padding: clamp(0.5em, 2.5vw, 5em) 0;
 }
 
@@ -512,6 +522,10 @@ body {
 
 .flip__heading-box {
     margin-top: 30px;
+}
+
+.heading-box .flip__heading {
+    font-size: clamp(1rem, 3vw, 42px);
 }
 
 .flip__text {
@@ -558,10 +572,10 @@ body {
 
 .steps__indicators {
     position: absolute;
-    top: 7.5%;
-    right: 2%;
+    top: 95vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: column;
     gap: 15px;
     z-index: 100;
 }
@@ -573,7 +587,7 @@ body {
     border: 5px solid #000000;
     background-color: transparent;
     opacity: 0.2;
-    transition: opacity 0.6s;
+    transition: opacity 0.3s ease;
 }
 
 .steps__indicator:hover {
@@ -586,15 +600,17 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    top: 2vh;
     border-radius: 40px;
 }
 
 .steps__card,
 .steps__card-first {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
+    height: 96vh;
     border-radius: 40px;
     transform: translateY(100vh);
     transition: transform 0.5s ease-out;
@@ -704,7 +720,7 @@ body {
 /* Second Transition Section */
 
 #second-transition {
-    height: 25vh;
+    height: 50vh;
 }
 
 /* Numbers Section */
@@ -864,7 +880,7 @@ body {
     max-width: 605px;
     z-index: 100;
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateY(100px);
 }
 
 .final__btn {
@@ -1019,6 +1035,7 @@ body {
 
     .hero__btn {
         margin: 80px 0;
+        padding: 15px 40px;
     }
 
     .steps__card-heading,
@@ -1031,11 +1048,15 @@ body {
         align-items: flex-end;
     }
 
+    .steps__card-heading {
+        margin: 15vh 0 0 40px;
+    }
+
     .steps__card-text-block {
         align-self: flex-start;
         align-items: flex-end;
         text-align: end;
-        margin: 150px 40px 0;
+        margin: 35vh 40px 0;
         max-width: 100%;
         width: 100%;
     }
@@ -1228,7 +1249,7 @@ body {
 
 @media screen and (max-height: 500px) and (min-width: 1280px) {
     .heading-box .second-heading {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -1239,7 +1260,6 @@ body {
 
     .flip__heading-box {
         margin: 0;
-        white-space: nowrap;
     }
 
     .final__order-title {

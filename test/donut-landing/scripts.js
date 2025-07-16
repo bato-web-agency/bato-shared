@@ -92,7 +92,7 @@ const handleResponsive = () => {
 		{ width: 575, scale: 0.6, position: [0.45, -0.1, -1.2], z: 7 },
 		{ width: 475, scale: 0.5, position: [0.3, -0.1, -1.2], z: 7 },
 		{ width: 375, scale: 0.35, position: [0.3, -0.1, -1.2], z: 7.5 },
-		{ width: 0, scale: 0.35, position: [0.25, -0.1, -1.2], z: 7.5 }
+		{ width: 0, scale: 0.35, position: [0.25, -0.5, -1.2], z: 7.5 }
 	];
 
 	const dot = dots.find(d => width >= d.width) || dots[dots.length - 1];
@@ -180,7 +180,7 @@ const setupGsapAnimations = (model) => {
 		scrollTrigger: {
 			trigger: '#flip',
 			start: 'top top',
-			end: () => `+=${window.innerHeight}px`,
+			end: () => `+=${window.innerHeight * 1.5}px`,
 			scrub: 1,
 			pin: true,
 			pinSpacing: false,
@@ -189,10 +189,8 @@ const setupGsapAnimations = (model) => {
 
 	timeline3
 		.to(model.rotation, { y: Math.PI * 0.5, duration: 1} )
-		.to(flipShadow, { x: Math.PI * 2, duration: 1 }, '<')
 		.to('.flip__heading', {opacity: 1, y: 0, duration: 0.5}, '<')
 		.to('.flip__text', {opacity: 1, y: 0, duration: 0.5}, '<')
-		.to(flipShadow, { opacity: 0, duration: 0.5 }, '+=0.1');
 
 	// Steps Section Animations
 
@@ -219,14 +217,6 @@ const setupGsapAnimations = (model) => {
 
 	timeline4
 		.to(modelContainer, {
-			x: () => {
-				if (window.innerHeight < 600 && window.innerWidth < 768) return '0vw';
-				return window.innerWidth < 768
-					? '0vw'
-					: window.innerWidth < 1200
-						? '0vw'
-						: '-2.5vw';
-			},
 			y: () => {
 				return window.innerWidth < 768
 					? '25vh'
@@ -237,8 +227,14 @@ const setupGsapAnimations = (model) => {
 		.to(model.scale, { x: window.innerWidth < 1300 ? 1.5 : 2.25,  y: window.innerWidth < 1300 ? 1.5 : 2.25,  z: window.innerWidth < 1300 ? 1.5 : 2.25,  duration: 1}, '<')
 		.to('.steps__heading', {opacity: 1, y: 0, duration: 0.5}, '<');
 
+	timeline4.to(`.steps__indicator:nth-child(1)`, {
+		opacity: 1,
+		duration: 1,
+		ease: 'power2.out',
+	}, 0);
+
 	cardsArray.forEach((card, index) => {
-		const y = `-${(index + 1) * 100}vh`;
+		const y = `-${((index + 1) * 96)}vh`;
 		const color = colors[index % colors.length];
 		const stepTime = (index + 1) * 5;
 		const delayTime = stepTime + 0.3;
@@ -256,7 +252,7 @@ const setupGsapAnimations = (model) => {
 			opacity: 1,
 			duration: 1,
 			ease: 'power2.out'
-		}, stepTime);
+		}, stepTime );
 
 		if (index > 0) {
 			timeline4.to(`.steps__indicator:nth-child(${index})`, {
@@ -271,7 +267,7 @@ const setupGsapAnimations = (model) => {
 				opacity: 0.2,
 				duration: 1,
 				ease: 'power2.out'
-			}, stepTime + 5);
+			}, stepTime + 10);
 		}
 
 		if (index === 2) {
@@ -285,7 +281,7 @@ const setupGsapAnimations = (model) => {
 		scrollTrigger: {
 			trigger: '#second-transition',
 			start: 'top bottom',
-			end: () => `+=${window.innerHeight}px`,
+			end: () => `+=${window.innerHeight * 2}px`,
 			scrub: true,
 		}
 	});
@@ -308,7 +304,7 @@ const setupGsapAnimations = (model) => {
 			y: () => {
 				if (window.innerHeight < 600) return '30vh';
 				if (window.innerWidth < 640) return '25vh';
-				return window.innerWidth < 1200 ? '5vh' : '10vh';
+				return window.innerWidth < 1200 ? '5vh' : '15vh';
 			},
 			duration: 1
 		}, '<')
@@ -330,7 +326,7 @@ const setupGsapAnimations = (model) => {
 	});
 
 	timeline6
-		.to('.numbers__heading', {opacity: 1, y: 0, duration: 1}, '<');
+		.to('.numbers__heading', {opacity: 1, y: 0, duration: 1}, '-=1');
 
 	items.forEach((item, i) => {
 		const others = items.filter((item, index) => index !== i);
@@ -346,7 +342,13 @@ const setupGsapAnimations = (model) => {
 				opacity: 1,
 				duration: 1,
 				ease: 'power2.out'
-			}, i);
+			}, i)
+
+			.to(model.rotation, {
+				y: "+=" + Math.PI * 2,
+				duration: 1,
+				ease: "power2.out"
+			}, i)
 	});
 
 	// Final Section Animations
@@ -361,17 +363,32 @@ const setupGsapAnimations = (model) => {
 			scrub: true,
 			onEnter: () => {
 				controlModel = true
+				modelContainer.style.pointerEvents = 'auto';
+				hasSavedRotation = false;
+				rotationReset = false;
+				savedRotation = null;
+				isModelRestored = false;
 			},
 			onLeaveBack: () => {
 				controlModel = false;
+				hasSavedRotation = false;
+				rotationReset = false;
+				savedRotation = null;
+				modelContainer.style.pointerEvents = 'none';
 				gsap.to(model.position, {x: 0, y: -0.01, z: -5, duration: 1});
-				gsap.to(model.scale, {x: window.innerWidth < 1024 ? 1.5 : 2.25, y: window.innerWidth < 1024 ? 1.5 : 2.25, z: window.innerWidth < 1024 ? 1.5 : 2.25, duration: 1,});
+			},
+			onUpdate: (self) => {
+				if (self.progress < 0.01 && self.direction === -1) {
+					model.position.set(0, -0.01, -5);
+					controlModel = false;
+					modelContainer.style.pointerEvents = 'none';
+				}
 			}
 		}
 	});
 
 	timeline7
-		.to('.final__order-box', { opacity: 1, x: 0, duration: 0.5 }, '<')
+		.to('.final__order-box', { opacity: 1, y: 0, duration: 0.5 }, '<')
 		.to(donutTop.color, { r: 0.62, g: 0.80, b: 0.39, duration: 0.5 }, '<')
 		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
 		.to(modelContainer, {
@@ -396,7 +413,6 @@ const setupGsapAnimations = (model) => {
 			z: window.innerWidth < 1024 ? 1.5 : 2.25,
 			duration: 1
 		}, '<')
-		.to(finalText, { opacity: 1, y: 0, duration: 0.5 }, '<');
 }
 
 // Control Model Functional
@@ -404,22 +420,33 @@ const setupGsapAnimations = (model) => {
 let isDragging = false;
 let prevMousePosition = { x: 0, y: 0};
 let controlModel = false;
-let rotationBeforeControl = null;
 let rotationReset = false;
+let hasSavedRotation = false;
+let savedRotation = null;
+let isModelRestored = false;
 
 window.addEventListener('mousedown', (event) => {
 	if (controlModel) {
-		if (!isDragging) {
-			rotationBeforeControl = model.rotation.clone();
+		if (!isDragging && !hasSavedRotation && model) {
+			savedRotation = model.rotation.clone();
+			hasSavedRotation = true;
 		}
 		rotationReset = false;
+		isModelRestored = false;
 	}
-	isDragging = true;
+
+	if (!isDragging) {
+		isDragging = true;
+	}
+
 	prevMousePosition = { x: event.clientX, y: event.clientY };
+	if (!savedRotation) return;
 });
 
 window.addEventListener('mousemove', (event) => {
-	if (!isDragging || !controlModel) return;
+	if (!isDragging || !controlModel  || !savedRotation) return;
+
+	if (isModelRestored) return;
 
 	const mouseMove = {
 		x: event.clientX - prevMousePosition.x,
@@ -435,14 +462,15 @@ window.addEventListener('mousemove', (event) => {
 });
 
 window.addEventListener('touchstart', (event) => {
-	if (event.touches.length === 1 && controlModel) {
-		if (!isDragging) {
-			rotationBeforeControl = model.rotation.clone();
+	if (event.touches.length === 2 && controlModel) {
+		if (!isDragging && !hasSavedRotation && model) {
+			savedRotation = model.rotation.clone();
+			hasSavedRotation = true;
 		}
 		rotationReset = false;
 	}
 
-	if (event.touches.length === 1) {
+	if (event.touches.length === 2) {
 		isDragging = true;
 		prevMousePosition = {
 			x: event.touches[0].clientX,
@@ -452,7 +480,7 @@ window.addEventListener('touchstart', (event) => {
 });
 
 window.addEventListener('touchmove', (event) => {
-	if (!isDragging || !controlModel || event.touches.length !== 1) return;
+	if (!isDragging || !controlModel || event.touches.length !== 2 || !savedRotation) return;
 
 	const touch = event.touches[0];
 	const mouseMove = {
@@ -500,18 +528,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			header.classList.remove('scrolling');
 		}
 
-		if (controlModel && !rotationReset && rotationBeforeControl) {
+		if (controlModel && !rotationReset && savedRotation) {
 			rotationReset = true;
+			isModelRestored = true;
 
 			gsap.to(model.rotation, {
-				x: rotationBeforeControl.x,
-				y: rotationBeforeControl.y,
-				z: rotationBeforeControl.z,
+				x: savedRotation.x,
+				y: savedRotation.y,
+				z: savedRotation.z,
 				duration: 1,
 				ease: "power2.out",
-				onComplete: () => {
-					controlModel = false;
-				}
 			});
 		}
 	});
