@@ -90,8 +90,8 @@ const handleResponsive = () => {
 		{ width: 768, scale: 0.7, position: [0.5, 0, -1.2], z: 6.5 },
 		{ width: 640, scale: 0.7, position: [0.45, 0, -1.2], z: 7 },
 		{ width: 575, scale: 0.6, position: [0.45, -0.1, -1.2], z: 7 },
-		{ width: 475, scale: 0.5, position: [0.3, -0.1, -1.2], z: 7 },
-		{ width: 375, scale: 0.35, position: [0.3, -0.1, -1.2], z: 7.5 },
+		{ width: 475, scale: 0.5, position: [0.3, -0.4, -1.2], z: 7 },
+		{ width: 375, scale: 0.35, position: [0.3, -0.2, -1.2], z: 7.5 },
 		{ width: 0, scale: 0.35, position: [0.25, -0.5, -1.2], z: 7.5 }
 	];
 
@@ -145,7 +145,7 @@ const setupGsapAnimations = (model) => {
 		scrollTrigger: {
 			trigger: '#hero',
 			start: 'top top',
-			end: () => `+=${window.innerHeight}px`,
+			end: () => `+=${window.innerHeight * 1.2}px`,
 			pin: true,
 			pinSpacing: false,
 			scrub: true,
@@ -161,7 +161,7 @@ const setupGsapAnimations = (model) => {
 		scrollTrigger: {
 			trigger: '#transition',
 			start: 'top bottom',
-			end: () => `+=${window.innerHeight / 2}px`,
+			end: () => `+=${window.innerHeight / 4}px`,
 			scrub: true,
 		}
 	});
@@ -313,6 +313,7 @@ const setupGsapAnimations = (model) => {
 	// Numbers Section Animations
 
 	const items = gsap.utils.toArray('.numbers__item');
+	const texts = gsap.utils.toArray('.numbers__text');
 
 	const timeline6 = gsap.timeline({
 		scrollTrigger: {
@@ -330,6 +331,8 @@ const setupGsapAnimations = (model) => {
 
 	items.forEach((item, i) => {
 		const others = items.filter((item, index) => index !== i);
+		const otherTexts = texts.filter((_, index) => index !== i);
+		const currentText = texts[i];
 
 		timeline6
 			.to(others, {
@@ -342,6 +345,18 @@ const setupGsapAnimations = (model) => {
 				opacity: 1,
 				duration: 1,
 				ease: 'power2.out'
+			}, i)
+
+			.to(currentText, {
+				opacity: 1,
+				duration: 0.5,
+				ease: 'power1.out'
+			}, i)
+
+			.to(otherTexts, {
+				opacity: 0,
+				duration: 0.5,
+				ease: 'power1.out'
 			}, i)
 
 			.to(model.rotation, {
@@ -375,7 +390,6 @@ const setupGsapAnimations = (model) => {
 				rotationReset = false;
 				savedRotation = null;
 				modelContainer.style.pointerEvents = 'none';
-				gsap.to(model.position, {x: 0, y: -0.01, z: -5, duration: 1});
 			},
 			onUpdate: (self) => {
 				if (self.progress < 0.01 && self.direction === -1) {
@@ -518,10 +532,42 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mobileMenu = document.querySelector('#mobile-menu');
 	const mousePointer = document.querySelector('#scroll-btn');
 	const menuLinks = [...document.querySelectorAll('a[href^="#"]')];
+	const returnBtn = document.querySelector('#return-btn')
 
-	// Header Scrolling
+	// Return Button
+
+	if (returnBtn) {
+		returnBtn.addEventListener('click', () => {
+			lenis.scrollTo(0, {
+				offset: 0,
+				duration: 1.2,
+				easing: t => t,
+			});
+		})
+	}
+
+	// Site Scrolling
+
+	let lastScroll = 0;
 
 	window.addEventListener('scroll', () => {
+		const currentScroll = window.scrollY;
+		const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+		const isScrollingDown = currentScroll > lastScroll;
+
+		if (currentScroll < 100 || currentScroll >= maxScroll - 10) {
+			returnBtn.classList.add('active');
+		} else {
+			if (isScrollingDown) {
+				returnBtn.classList.remove('active');
+			} else {
+				returnBtn.classList.add('active');
+			}
+		}
+
+		lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+
+
 		if (window.scrollY > 100) {
 			header.classList.add('scrolling');
 		} else {
