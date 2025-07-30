@@ -82,16 +82,16 @@ const handleResponsive = () => {
 	if (!model) return;
 
 	const dots = [
-		{ width: 1300, scale: 1, position: [0, -0.1, -2], z: 5 },
+		{ width: 1300, scale: 1, position: [0.2, 0, -2], z: 5 },
 		{ width: 1280, scale: 1, position: [0.2, 0, -2], z: 5 },
 		{ width: 1200, scale: 1, position: [0, 0, -2], z: 5 },
 		{ width: 1024, scale: 1, position: [0.5, 0, -3], z: 5.5 },
 		{ width: 960, scale: 1, position: [0.5, 0, -3], z: 6 },
-		{ width: 768, scale: 0.7, position: [0.5, 0, -1.2], z: 6.5 },
+		{ width: 768, scale: 0.7, position: [0.25, 0, -1.2], z: 6.5 },
 		{ width: 640, scale: 0.7, position: [0.45, 0, -1.2], z: 7 },
 		{ width: 575, scale: 0.6, position: [0.45, -0.1, -1.2], z: 7 },
 		{ width: 475, scale: 0.5, position: [0.3, -0.4, -1.2], z: 7 },
-		{ width: 375, scale: 0.35, position: [0.3, -0.2, -1.2], z: 7.5 },
+		{ width: 375, scale: 0.45, position: [0.3, 0, -1.2], z: 7.5 },
 		{ width: 0, scale: 0.35, position: [0.25, -0.5, -1.2], z: 7.5 }
 	];
 
@@ -126,6 +126,7 @@ const onResize = debounce(() => {
 		handleResponsive();
 		lastWidth = currentWidth;
 		window.location.reload();
+		setupGsapAnimations()
 	}
 }, 200);
 
@@ -140,11 +141,10 @@ const setupGsapAnimations = (model) => {
 	donutParticles.material.opacity = 1;
 
 	// Hero Section Animations
-
 	const timeline = gsap.timeline({
 		scrollTrigger: {
 			trigger: '#hero',
-			start: 'top top',
+			start: () => window.innerWidth < 768 ? 'top top' : 'top-=20 top',
 			end: () => `+=${window.innerHeight * 1.2}px`,
 			pin: true,
 			pinSpacing: false,
@@ -179,7 +179,6 @@ const setupGsapAnimations = (model) => {
 	const timeline3 = gsap.timeline({
 		scrollTrigger: {
 			trigger: '#flip',
-			start: 'top top',
 			end: () => `+=${window.innerHeight * 1.5}px`,
 			scrub: 1,
 			pin: true,
@@ -298,11 +297,11 @@ const setupGsapAnimations = (model) => {
 		.to(modelContainer, {
 			x: () => {
 				if (window.innerWidth < 640) return '0vw';
-				if (window.innerHeight < 600) return '0';
+				if (window.innerHeight < 650) return '0';
 				return '25vw';
 			},
 			y: () => {
-				if (window.innerHeight < 600) return '30vh';
+				if (window.innerHeight < 650) return '30vh';
 				if (window.innerWidth < 640) return '25vh';
 				return window.innerWidth < 1200 ? '5vh' : '15vh';
 			},
@@ -622,6 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		anchor.addEventListener('click', (e) => {
 			e.preventDefault();
 			mobileMenu.classList.remove('active');
+			document.body.classList.remove('menu-open');
 
 			const target = document.querySelector(anchor.getAttribute('href'));
 			if (target) {
