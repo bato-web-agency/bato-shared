@@ -82,7 +82,8 @@ const handleResponsive = () => {
 	if (!model) return;
 
 	const dots = [
-		{ width: 1300, scale: 1, position: [0.2, 0, -2], z: 5 },
+		{ width: 1600, scale: 1, position: [0.2, 0, -2], z: 5 },
+		{ width: 1440, scale: 1, position: [0.1, 0, -2], z: 5 },
 		{ width: 1280, scale: 1, position: [0.2, 0, -2], z: 5 },
 		{ width: 1200, scale: 1, position: [0, 0, -2], z: 5 },
 		{ width: 1024, scale: 1, position: [0.5, 0, -3], z: 5.5 },
@@ -167,10 +168,19 @@ const setupGsapAnimations = (model) => {
 	});
 
 	timeline2
-		.to(model.rotation, { x: 0, z: 0.8, duration: 1})
-		.to(model.scale, { x: window.innerWidth < 575 ? 1.75 : 2.25, y: window.innerWidth < 575 ? 1.75 : 2.25, z: window.innerWidth < 575 ? 1.75 : 2.25, duration: 1,}, '<')
+		.to(model.rotation, { x: 0, z: 0.8, duration: 1 })
+		.to(model.scale, {
+			x: window.innerWidth < 575 ? 1.75 : 2.25,
+			y: window.innerWidth < 575 ? 1.75 : 2.25,
+			z: window.innerWidth < 575 ? 1.75 : 2.25,
+			duration: 1,
+		}, '<')
 		.to(model.position, { x: 0, y: 0, z: -5, duration: 1 }, '<')
-		.to(modelContainer, { x: '0vw', y: window.innerWidth < 1024 ? '20vh' : '20vh', duration: 1 }, '<+=0.1');
+		.to(modelContainer, {
+			x: '0vw',
+			y: window.innerHeight >= 800 ? '10vh' : '20vh',
+			duration: 1,
+		}, '<+=0.1');
 
 	// Flip Section Animations
 
@@ -183,11 +193,40 @@ const setupGsapAnimations = (model) => {
 			scrub: 1,
 			pin: true,
 			pinSpacing: false,
+			onEnter: () => {
+				gsap.to('.flip__figures', {
+					autoAlpha: 1,
+					duration: 0.5,
+					ease: 'power1.out'
+				});
+			},
+			onLeave: () => {
+				gsap.to('.flip__figures', {
+					autoAlpha: 0,
+					duration: 0.5,
+					ease: 'power1.in'
+				});
+			},
+			onEnterBack: () => {
+				gsap.to('.flip__figures', {
+					autoAlpha: 1,
+					duration: 0.5,
+					ease: 'power1.out'
+				});
+			},
+			onLeaveBack: () => {
+				gsap.to('.flip__figures', {
+					autoAlpha: 0,
+					duration: 0.5,
+					ease: 'power1.in'
+				});
+			},
 		}
 	});
 
 	timeline3
 		.to(model.rotation, { y: Math.PI * 0.5, duration: 1} )
+		.to('.flip__shadow', {opacity: 1, y: 0, duration: 0.5}, '<')
 		.to('.flip__heading', {opacity: 1, y: 0, duration: 0.5}, '<')
 		.to('.flip__text', {opacity: 1, y: 0, duration: 0.5}, '<')
 
@@ -303,7 +342,7 @@ const setupGsapAnimations = (model) => {
 			y: () => {
 				if (window.innerHeight < 650) return '30vh';
 				if (window.innerWidth < 640) return '25vh';
-				return window.innerWidth < 1200 ? '5vh' : '15vh';
+				return window.innerWidth < 1200 ? '5vh' : '10vh';
 			},
 			duration: 1
 		}, '<')
@@ -402,7 +441,6 @@ const setupGsapAnimations = (model) => {
 
 	timeline7
 		.to('.final__order-box', { opacity: 1, y: 0, duration: 0.5 }, '<')
-		.to(donutTop.color, { r: 0.62, g: 0.80, b: 0.39, duration: 0.5 }, '<')
 		.to(donutParticles.material, { opacity: 1, duration: 1, ease: 'power2.out' }, '<')
 		.to(modelContainer, {
 			x: () => {
@@ -416,7 +454,7 @@ const setupGsapAnimations = (model) => {
 				if (window.innerWidth < 1024 && window.innerHeight < 600) return '30vh';
 				if (window.innerHeight < 600) return '10vh';
 				if (window.innerWidth < 1200) return '30vh';
-				return '5vh';
+				return '0vh';
 			},
 			duration: 1
 		}, '<')
@@ -553,9 +591,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		const currentScroll = window.scrollY;
 		const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 		const isScrollingDown = currentScroll > lastScroll;
+		const windowHeight = window.innerHeight;
+		const firstSectionHeight = windowHeight * 1.75;
 
-		if (currentScroll < 100 || currentScroll >= maxScroll - 10) {
-			returnBtn.classList.add('active');
+		if (currentScroll < firstSectionHeight || currentScroll >= maxScroll - 10) {
+			returnBtn.classList.remove('active');
 		} else {
 			if (isScrollingDown) {
 				returnBtn.classList.remove('active');
