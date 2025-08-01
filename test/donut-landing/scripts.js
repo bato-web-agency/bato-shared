@@ -82,7 +82,7 @@ const handleResponsive = () => {
 	if (!model) return;
 
 	const dots = [
-		{ width: 1600, scale: 1, position: [0.2, 0, -2], z: 5 },
+		{ width: 1600, scale: 1, position: [0.35, 0, -2], z: 5 },
 		{ width: 1440, scale: 1, position: [0.1, 0, -2], z: 5 },
 		{ width: 1280, scale: 1, position: [0.2, 0, -2], z: 5 },
 		{ width: 1200, scale: 1, position: [0, 0, -2], z: 5 },
