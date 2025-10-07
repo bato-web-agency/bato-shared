@@ -514,6 +514,10 @@ body.light .base-template__text {
   color: #323232;
 }
 
+body.light .contact-menu__label {
+  color: var(--color-graphite);
+}
+
 .theme-switcher {
   margin: 0 auto;
   width: 102px;
