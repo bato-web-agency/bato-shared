@@ -7,6 +7,9 @@
 <g filter="url(#filter1_f_14_120)">
 <circle cx="327.678" cy="380" r="137" fill="#F84397"/>
 </g>
+<g filter="url(#filter2_f_14_120)">
+<ellipse cx="161.178" cy="146" rx="100.5" ry="34" fill="black" fill-opacity="0.6"/>
+</g>
 </g>
 <defs>
 <filter id="filter0_f_14_120" x="-433.422" y="-431.1" width="862.2" height="862.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -18,6 +21,11 @@
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="147.05" result="effect1_foregroundBlur_14_120"/>
+</filter>
+<filter id="filter2_f_14_120" x="6.67773" y="58" width="309" height="176" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="27" result="effect1_foregroundBlur_14_120"/>
 </filter>
 <clipPath id="clip0_14_120">
 <rect width="323.323" height="249" rx="40" fill="white"/>
