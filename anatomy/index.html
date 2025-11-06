@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 1rem 0;
+            background-color: #404040;
+            min-height: 100dvh;
+        }
+
+        .container {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            max-width: 640px;
+            aspect-ratio: 1024 / 1349;
+            overflow: hidden;
+        }
+
+        .image {
+            position: absolute;
+            inset: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
+
+        .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .image.reveal {
+            transition: opacity 0.2s linear;
+        }
+
+        .image.reveal.blob {
+            mask-image: url('./img/blob.svg');
+            mask-repeat: no-repeat;
+            mask-type: luminance;
+            mask-size: 320px;
+            mask-position: 10% 20%;
+            cursor: none;
+        }
+
+        .image.reveal.circle {
+            opacity: 0;
+            mask-image: url('./img/mask.svg');
+            mask-repeat: no-repeat;
+            mask-type: luminance;
+            mask-size: 200px;
+            mask-position: 10% 20%;
+            cursor: none;
+        }
+
+        .container:hover .image.reveal.blob {
+            opacity: 0;
+        }
+
+        .container:hover .image.reveal.circle {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="image background">
+            <img src="./img/img-1.png" alt>
+        </div>
+        <div class="image reveal blob">
+            <img src="./img/img-2.png" alt>
+        </div>
+        <div class="image reveal circle">
+            <img src="./img/img-2.png" alt>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const reveal = document.querySelector('.image.reveal.circle');
+
+            let animation = true;
+            let mousePos = { x: -1, y: -1 };
+
+            // const interval = setInterval(() => {
+            //     if (!animation) return;
+
+            //     reveal.style.transition = 'mask-position 1.5s linear';
+
+            //     const randX = Math.floor(Math.random() * container.offsetWidth);
+            //     const randY = Math.floor(Math.random() * container.offsetHeight);
+
+            //     reveal.style.maskPosition = `${randX - 150}px ${randY - 150}px`;
+            // }, 1500);
+
+            reveal.addEventListener('mousemove', (e) => {
+                animation = false;
+                reveal.style.transition = 'none';
+
+                mousePos.x = e.offsetX;
+                mousePos.y = e.offsetY;
+
+                reveal.style.maskPosition = `${mousePos.x - 150}px ${mousePos.y - 150}px`;
+            });
+
+            reveal.addEventListener('mouseout', (e) => {
+                animation = true;
+            });
+        });
+    </script>
+</body>
+</html>

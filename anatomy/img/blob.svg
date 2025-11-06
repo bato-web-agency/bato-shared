@@ -1,0 +1,18 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="smoothInkBlob" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.007 0.009" numOctaves="1" seed="6">
+                <animate attributeName="baseFrequency" dur="8s" values="0.007 0.009; 0.010 0.012; 0.007 0.009"
+                    repeatCount="indefinite" />
+            </feTurbulence>
+
+            <feDisplacementMap in="SourceGraphic" scale="45">
+                <animate attributeName="scale" dur="8s" values="30; 45; 30" repeatCount="indefinite" />
+            </feDisplacementMap>
+        </filter>
+    </defs>
+
+    <circle cx="150" cy="150" r="120" fill="black" filter="url(#smoothInkBlob)">
+        <animate attributeName="r" dur="8s" values="120; 125; 118; 120" repeatCount="indefinite" />
+    </circle>
+</svg>
