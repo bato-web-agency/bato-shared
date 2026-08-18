@@ -5,7 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const preview = document.querySelector(".preview");
 
 	if (preview) {
-		if (!window.location.href.includes("fullcpgrid")) {
+		const isLegacyGridPreview = window.location.href.includes("fullcpgrid");
+		const isEmbeddedPreview = window.parent !== window;
+
+		if (isEmbeddedPreview && !isLegacyGridPreview) {
 			preview.style.display = "none";
 
 			document.documentElement.style.overflow = "";
